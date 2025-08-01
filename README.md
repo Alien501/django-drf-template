@@ -40,7 +40,7 @@ A modern, production-ready Django REST API template with authentication, email v
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Alien501/django-drf-template.git
 cd django-template
 ```
 
