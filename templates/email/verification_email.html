@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #007bff;
+        }
+        .header h1 {
+            color: #007bff;
+            margin: 0;
+            font-size: 28px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .message {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #666;
+        }
+        .verification-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .verification-button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #888;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .contact-info h4 {
+            margin: 0 0 10px 0;
+            color: #007bff;
+        }
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{ app_name|default:"App Name" }}</h1>
+        </div>
+        
+        <div class="content">
+            <div class="greeting">
+                Greetings! <strong>{{ user_name }}</strong>,
+            </div>
+            
+            <div class="message">
+                {{ startingcontent|safe }}
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="{{ link }}" class="verification-button">
+                    {{ linkcontent|default:"Verify Your Email" }}
+                </a>
+            </div>
+            
+            <div class="message">
+                {{ endingcontent|safe }}
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Best Regards,</strong></p>
+            <p>Team {{ app_name|default:"App Name" }}</p>
+            
+            {% if contact_email %}
+            <div class="contact-info">
+                <h4>Need Help?</h4>
+                <p>If you have any questions, please don't hesitate to contact us at:</p>
+                <p><strong>Email:</strong> {{ contact_email }}</p>
+                {% if contact_phone %}
+                <p><strong>Phone:</strong> {{ contact_phone }}</p>
+                {% endif %}
+                {% if social_media %}
+                <p><strong>Follow us:</strong> {{ social_media }}</p>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html> 
