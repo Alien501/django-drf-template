@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'authentication',
     'debug_toolbar',
+    'admin_honeypot',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
